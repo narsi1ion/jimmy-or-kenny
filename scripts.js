@@ -96,26 +96,42 @@ window.onload = function(){
 		}
 	}
 
-// WORKS Function to replace div "quiz"'s contents with picture divs
+// WORKS Function to replace div "quiz"'s contents with picture & button divs
 	function showPic(singer){
 		toggle(quiz);
 		if(singer == "0"){
 			toggle(jimmyPic);
+			btnJimmy.addEventListener("click", function(){
+				reset();
+				});			
 		}
 		else if(singer == "1"){
 			toggle(kennyPic);
+			btnKenny.addEventListener("click", function(){
+				reset();
+				});	
 		}
 	}
 	
-// Function to make "try again" button work
+// WORKS Function to make "try again" button work
 	function reset(){
 		jimmyPic.setAttribute("class","off");
 		kennyPic.setAttribute("class","off");
 		setup();
-		toggle(quiz);
+		quiz.setAttribute("class","on");
 	}
 	
-
+// WORKS Function to execute on guess click
+	function guessClicked(button){
+		guess = button;
+		guessCount++;
+		judgement(singerChoice, guess);
+		console.log(result);
+		console.log("Right = " + rightCount + ", wrong = " + wrongCount); // For debugging	
+		showPic(singerChoice);
+		
+	}
+	
 // WORKS Set up the page!
 	jimmySongs = songList("sirJames.json");
 	kennySongs = songList("sirKenneth.json");
@@ -126,24 +142,12 @@ window.onload = function(){
 	}
 
 	
-// Set up the page, make buttons respond to clicks, run the whole darn thing
+// WORKS Set up the page and run the whole darn thing
 	setup();
 	for(var i = 0; i < 2; i++){
 		choices[i].addEventListener("click", function(){
-			guess = this.id;
-			guessCount++;
-			judgement(singerChoice, guess);
-			console.log(result);
-			console.log("Right = " + rightCount + ", wrong = " + wrongCount); // For debugging	
-			showPic(singerChoice);
-	
-			});
+			guessClicked(this.id);
+			}
+		);
 	}
-/*	if(jimmyPic.className == "on")){
-		btnJimmy.addEventListener("click", reset(););		
-	}
-/*	else if(kennyPic.className == "on")){
-		btnKenny.addEventListener("click", reset(););
-	}*/
-
 }
