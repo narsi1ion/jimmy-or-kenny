@@ -9,14 +9,44 @@ body {
   text-align: center;
 }
 
+/* ------- Main Container Styles -------*/
+
+.container-fluid{
+  background-color: rgba(55,240,227,0.8);
+  padding: 3%;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  position: relative;
+}
+
 h1 {
   color: #1D4E5E;
 }
 
+
+/* ------- Singer Pic Styles -------*/
+
+img {
+  max-width: 100%;
+}
+
+@media (min-width: 768px){
+	img{
+		max-width:60%;
+	}
+}
+
+button {
+  margin: 5%;
+}
+
+
+/* ------- Accolade Styles -------*/
 p {
   position: absolute;
   left: 50%;
-  top: 7%;
+  top: 8%;
   font-size: 200%;
   transform: translate(-50%, -50%);
 }
@@ -31,18 +61,8 @@ p {
   top: 3%;
 }
 
-button {
-  margin: 5%;
-}
 
-.container-fluid{
-  background-color: rgba(55,240,227,0.8);
-  padding: 3%;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 2px;
-  position: relative;
-}
+/* ------- Toggle Hide Styles -------*/
 
 .off{
   display: none;
@@ -52,23 +72,53 @@ button {
   display: inline;
 }
 
+
+/* ------- Guess Counter Styles -------*/
+
 #guess-counter {
   margin: 5%;
 }
 
-.navbar {
-  background-color: rgb(55,240,227);
-  text-color: #1D4E5E;
+/* ------- Footer Styles -------*/
+.navbar{
+	background-color: rgb(55,240,227);
+	text-color: #1D4E5E;
 }
 
-.site-info{
-  position: absolute;
-  left: 5%;
-  top: 25%; 
+@media (max-width: 767px){
+	.container{
+		position: relative;
+		padding-top: 20px;
+		padding-bottom: 5px;	
+	}
+
+	.site-info{
+		display: block;
+		position: relative;
+		left:50%;
+		top: 5%;
+		transform: translate(-50%, -50%);
+	}
+
+	.MBMBAM{
+		display: block;
+		position: relative;
+		left:50%;
+		transform: translate(-50%, -50%);
+	}
 }
 
-.MBMBAM{
-  position: absolute;
-  right: 5%;
-  top: 25%;
+@media (min-width: 768px){
+	.site-info{
+		position: absolute;
+		left: 5%;
+		top: 25%; 
+	}
+
+	.MBMBAM{
+	 	position: absolute;
+		right: 5%;
+		top: 25%;
+	}
 }
+

@@ -1,5 +1,5 @@
 window.onload = function(){
-// WORKS Global variables needed for upcoming functions
+// Global variables needed for upcoming functions
 	var choices = document.getElementsByClassName("btn-primary");
 	var guess;
 	var guessCount = 0;
@@ -19,7 +19,7 @@ window.onload = function(){
 	var righto = document.getElementById("righto");
 	var wrongo = document.getElementById("wrongo");
 
-// WORKS Function to grab song titles
+// Function to grab song titles
 	function songList(file){
 		let songs;
 		let request = new XMLHttpRequest();
@@ -37,13 +37,13 @@ window.onload = function(){
 		return songs;
 	}
 
-// WORKS Helper function: get random integer
+// Helper function: get random integer
 
 	function getRandomInt(min, max) {
  		 return Math.floor(Math.random() * (max - min)) + min;
 	}
 
-// WORKS Function to display song choice
+// Function to display song choice
 	function displaySong(singer, song){
 	let songs;
 		if(singer == 0){
@@ -56,7 +56,7 @@ window.onload = function(){
 	document.getElementById("song-name").innerHTML = songName;	
 	}
 	
-// WORKS Function to change guess counter
+// Function to change guess counter
 	function countUpdate(right,total){
 		percent = Math.round((right / total)*100);
 		document.getElementById("guess-counter").innerHTML = 
@@ -64,7 +64,7 @@ window.onload = function(){
 			"!<h4> Certified "+percent+"% island ready.</h4>";
 	}
 		
-// WORKS Function to evaluate answer as correct or incorrect
+// Function to evaluate answer as correct or incorrect
 	function judgement(singer,answer){
 		if(singer == 0 && answer == "jimmy"){
 			result = "correct";
@@ -88,7 +88,7 @@ window.onload = function(){
 		countUpdate(rightCount,guessCount);
 	}
 
-// WORKS Helpful function to switch class from "off" to "on" or vice versa
+// Helpful function to switch class from "off" to "on" or vice versa
 	function toggle(elem){
 		if(elem.className == "on"){
 			elem.setAttribute("class","off");
@@ -98,7 +98,7 @@ window.onload = function(){
 		}
 	}
 	
-// WORKS Function to display the condescending or congratulatory message
+// Function to display the condescending or congratulatory message
 	function accolades(grade){
 		if(grade == "correct"){
 			toggle(righto);
@@ -108,7 +108,7 @@ window.onload = function(){
 		}
 	}
 
-// WORKS Function to replace div "quiz"'s contents with picture & button divs
+// Function to replace div "quiz"'s contents with picture & button divs
 	function showPic(singer){
 		toggle(quiz);
 		if(singer == "0"){
@@ -125,7 +125,7 @@ window.onload = function(){
 		}
 	}
 	
-// WORKS Function to make "try again" button work
+// Function to make "try again" button work
 	function reset(){
 		jimmyPic.setAttribute("class","off");
 		kennyPic.setAttribute("class","off");
@@ -135,7 +135,7 @@ window.onload = function(){
 		wrongo.setAttribute("class","off");
 	}
 	
-// WORKS Function to execute on guess click
+// Function to execute on guess click
 	function guessClicked(button){
 		guess = button;
 		guessCount++;
@@ -147,7 +147,7 @@ window.onload = function(){
 		
 	}
 	
-// WORKS Set up the page!
+// Set up the page!
 	jimmySongs = songList("sirJames.json");
 	kennySongs = songList("sirKenneth.json");
 	function setup(){
@@ -157,7 +157,7 @@ window.onload = function(){
 	}
 
 	
-// WORKS Set up the page and run the whole darn thing
+// Set up the page and run the whole darn thing
 	setup();
 	for(var i = 0; i < 2; i++){
 		choices[i].addEventListener("click", function(){
