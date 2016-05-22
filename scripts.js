@@ -1,5 +1,5 @@
 window.onload = function(){
-// Global variables needed for upcoming functions
+// WORKS Global variables needed for upcoming functions
 	var choices = document.getElementsByClassName("btn-primary");
 	var guess;
 	var guessCount = 0;
@@ -7,8 +7,17 @@ window.onload = function(){
 	var wrongCount = 0;
 	var result;
 	var percent;
+	var quiz = document.getElementById("quiz");
+	var jimmyPic = document.getElementById("jimmy-pic");
+	var kennyPic = document.getElementById("kenny-pic");
+	var btnJimmy = document.getElementById("btn-jimmy");
+	var btnKenny = document.getElementById("btn-kenny");
+	var singerChoice;
+	var songChoice;
+	var jimmySongs;
+	var kennySongs;
 
-// Function to grab song titles
+// WORKS Function to grab song titles
 	function songList(file){
 		let songs;
 		let request = new XMLHttpRequest();
@@ -26,13 +35,13 @@ window.onload = function(){
 		return songs;
 	}
 
-// Helper function: get random integer
+// WORKS Helper function: get random integer
 
 	function getRandomInt(min, max) {
  		 return Math.floor(Math.random() * (max - min)) + min;
 	}
 
-// Function to display song choice
+// WORKS Function to display song choice
 	function displaySong(singer, song){
 	let songs;
 		if(singer == 0){
@@ -45,18 +54,7 @@ window.onload = function(){
 	document.getElementById("song-name").innerHTML = songName;	
 	}
 	
-// Makes buttons respond to clicks, run the whole darn thing
-	for(var i = 0; i < 2; i++){
-		choices[i].addEventListener("click", function(){
-			guess = this.id;
-			guessCount++;
-			judgement(singerChoice, guess);
-			console.log(result);
-			console.log("Right = " + rightCount + ", wrong = " + wrongCount); // For debugging		
-			});
-	}
-	
-// Function to change guess counter
+// WORKS Function to change guess counter
 	function countUpdate(right,total){
 		percent = Math.round((right / total)*100);
 		document.getElementById("guess-counter").innerHTML = 
@@ -64,7 +62,7 @@ window.onload = function(){
 			"!<h4> Certified "+percent+"% island ready.</h4>";
 	}
 		
-// Function to evaluate answer as correct or incorrect
+// WORKS Function to evaluate answer as correct or incorrect
 	function judgement(singer,answer){
 		if(singer == 0 && answer == "jimmy"){
 			result = "correct";
@@ -88,20 +86,64 @@ window.onload = function(){
 		countUpdate(rightCount,guessCount);
 	}
 
+// WORKS Helpful function to switch class from "off" to "on" or vice versa
+	function toggle(elem){
+		if(elem.className == "on"){
+			elem.setAttribute("class","off");
+		}
+		else{
+			elem.setAttribute("class", "on");
+		}
+	}
 
-// Function to replace id main-container's contents with picture & result
-
-
-
-// Set up the page!
-
-	var jimmySongs = songList("sirJames.json");
-	var kennySongs = songList("sirKenneth.json");
-	var singerChoice = getRandomInt(0,2);
-	var songChoice = getRandomInt(0,jimmySongs.length);
-	displaySong(singerChoice, songChoice);
-
+// WORKS Function to replace div "quiz"'s contents with picture divs
+	function showPic(singer){
+		toggle(quiz);
+		if(singer == "0"){
+			toggle(jimmyPic);
+		}
+		else if(singer == "1"){
+			toggle(kennyPic);
+		}
+	}
+	
+// Function to make "try again" button work
+	function reset(){
+		jimmyPic.setAttribute("class","off");
+		kennyPic.setAttribute("class","off");
+		setup();
+		toggle(quiz);
+	}
 	
 
+// WORKS Set up the page!
+	jimmySongs = songList("sirJames.json");
+	kennySongs = songList("sirKenneth.json");
+	function setup(){
+		singerChoice = getRandomInt(0,2);
+		songChoice = getRandomInt(0,jimmySongs.length);
+		displaySong(singerChoice, songChoice);
+	}
+
+	
+// Set up the page, make buttons respond to clicks, run the whole darn thing
+	setup();
+	for(var i = 0; i < 2; i++){
+		choices[i].addEventListener("click", function(){
+			guess = this.id;
+			guessCount++;
+			judgement(singerChoice, guess);
+			console.log(result);
+			console.log("Right = " + rightCount + ", wrong = " + wrongCount); // For debugging	
+//			showPic(singerChoice);
+	
+			});
+	}
+/*	if(jimmyPic.className == "on")){
+		btnJimmy.addEventListener("click", reset(););		
+	}
+/*	else if(kennyPic.className == "on")){
+		btnKenny.addEventListener("click", reset(););
+	}*/
 
 }

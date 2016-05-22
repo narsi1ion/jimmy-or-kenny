@@ -20,13 +20,29 @@
 	
 	<!-- Main Container -->
 	<div id="main-container" class="container-fluid">
-		<h1>Who sings it?</h1>
-		<h2>
-			<div id="song-name">
+
+		<!-- Quiz content -->
+		<div id="quiz" class="on">
+			<h1>Who sings it?</h1>
+			<h2>
+				<div id="song-name">
+				</div>
+			</h2>
+				<button id = jimmy type="button" class="btn btn-primary btn-large">Jimmy Buffett</button>
+				<button id = kenny type="button" class="btn btn-primary btn-large">Kenny Chesney</button>
 			</div>
-		</h2>
-			<button id = jimmy type="button" class="btn btn-primary btn-large">Jimmy Buffett</button>
-			<button id = kenny type="button" class="btn btn-primary btn-large">Kenny Chesney</button>
+		</div>
+		
+		<!-- Singer is Jimmy! -->
+		<div id ="jimmy-pic" class="off">
+			<img src="jimmy.jpg" title="Mr. Margaritaville" height="100%">
+			<button type ="button" id="btn-jimmy" class="btn btn-info btn-large">Try another one!</button>
+		</div>
+		
+		<!-- Singer is Kenny! -->
+		<div id="kenny-pic" class="off">
+			<img src="kenny.jpg" title="Apparently his tractor is sexy" height="100%">
+			<button type ="button" id="btn-kenny" class="btn btn-info btn-large">Try another one!</button>
 		</div>
 	</div>
 

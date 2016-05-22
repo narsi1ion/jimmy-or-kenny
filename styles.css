@@ -25,6 +25,14 @@ button {
   border-width: 2px;
 }
 
+.off{
+  display: none;
+}
+
+.on{
+  display: inline;
+}
+
 #guess-counter {
   margin: 5%;
 }
