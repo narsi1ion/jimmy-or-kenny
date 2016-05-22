@@ -15,18 +15,20 @@ h1 {
 
 p {
   position: absolute;
-  top: 17%;
-  font-size: 300%;
+  left: 50%;
+  top: 7%;
+  font-size: 200%;
+  transform: translate(-50%, -50%);
 }
 
-.nope{
+#wrongo {
   color: #C70000;
-  left: 41.5%;
+  top: 3%;
 }
 
-.yup{
+#righto {
   color: #1CA803;
-  left: 40%;
+  top: 3%;
 }
 
 button {
@@ -39,6 +41,7 @@ button {
   border-radius: 5px;
   border-style: solid;
   border-width: 2px;
+  position: relative;
 }
 
 .off{
