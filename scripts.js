@@ -135,7 +135,7 @@ window.onload = function(){
 			judgement(singerChoice, guess);
 			console.log(result);
 			console.log("Right = " + rightCount + ", wrong = " + wrongCount); // For debugging	
-//			showPic(singerChoice);
+			showPic(singerChoice);
 	
 			});
 	}
