@@ -6,6 +6,7 @@ window.onload = function(){
 	var rightCount = 0;
 	var wrongCount = 0;
 	var result;
+	var percent;
 
 // Function to grab song titles
 	function songList(file){
@@ -57,8 +58,10 @@ window.onload = function(){
 	
 // Function to change guess counter
 	function countUpdate(right,total){
+		percent = Math.round((right / total)*100);
 		document.getElementById("guess-counter").innerHTML = 
-			"You've got "+ right + " correct out of "+total;
+			"You've got "+ right + " correct out of "+total+
+			"!<h4> Certified "+percent+"% island ready.</h4>";
 	}
 		
 // Function to evaluate answer as correct or incorrect
@@ -87,6 +90,8 @@ window.onload = function(){
 
 
 // Function to replace id main-container's contents with picture & result
+
+
 
 // Set up the page!
 
