@@ -13,6 +13,22 @@ h1 {
   color: #1D4E5E;
 }
 
+p {
+  position: absolute;
+  top: 17%;
+  font-size: 300%;
+}
+
+.nope{
+  color: #C70000;
+  left: 41.5%;
+}
+
+.yup{
+  color: #1CA803;
+  left: 40%;
+}
+
 button {
   margin: 5%;
 }

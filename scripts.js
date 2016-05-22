@@ -16,6 +16,8 @@ window.onload = function(){
 	var songChoice;
 	var jimmySongs;
 	var kennySongs;
+	var righto = document.getElementById("righto");
+	var wrongo = document.getElementById("wrongo");
 
 // WORKS Function to grab song titles
 	function songList(file){
@@ -95,6 +97,16 @@ window.onload = function(){
 			elem.setAttribute("class", "on");
 		}
 	}
+	
+// WORKS Function to display the condescending or congratulatory message
+	function accolades(grade){
+		if(grade == "correct"){
+			toggle(righto);
+		}
+		else if(grade == "incorrect"){
+			toggle(wrongo);
+		}
+	}
 
 // WORKS Function to replace div "quiz"'s contents with picture & button divs
 	function showPic(singer){
@@ -119,6 +131,8 @@ window.onload = function(){
 		kennyPic.setAttribute("class","off");
 		setup();
 		quiz.setAttribute("class","on");
+		righto.setAttribute("class","off");
+		wrongo.setAttribute("class","off");
 	}
 	
 // WORKS Function to execute on guess click
@@ -129,6 +143,7 @@ window.onload = function(){
 		console.log(result);
 		console.log("Right = " + rightCount + ", wrong = " + wrongCount); // For debugging	
 		showPic(singerChoice);
+		accolades(result);
 		
 	}
 	
