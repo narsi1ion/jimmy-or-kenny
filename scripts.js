@@ -1,4 +1,12 @@
 window.onload = function(){
+// Global variables needed for upcoming functions
+	var choices = document.getElementsByClassName("btn-primary");
+	var guess;
+	var guessCount = 0;
+	var rightCount = 0;
+	var wrongCount = 0;
+	var result;
+
 // Function to grab song titles
 	function songList(file){
 		let songs;
@@ -37,25 +45,23 @@ window.onload = function(){
 	}
 	
 // Makes buttons respond to clicks, run the whole darn thing
-	var choices = document.getElementsByClassName("btn-primary");
-	var guess;
-	var guesscount = 0;
-	var rightCount = 0;
-	var wrongCount = 0;
-	var result;
-	
 	for(var i = 0; i < 2; i++){
 		choices[i].addEventListener("click", function(){
 			guess = this.id;
-			guesscount++;
+			guessCount++;
 			judgement(singerChoice, guess);
 			console.log(result);
 			console.log("Right = " + rightCount + ", wrong = " + wrongCount); // For debugging		
 			});
 	}
+	
+// Function to change guess counter
+	function countUpdate(right,total){
+		document.getElementById("guess-counter").innerHTML = 
+			"You've got "+ right + " correct out of "+total;
+	}
 		
 // Function to evaluate answer as correct or incorrect
-
 	function judgement(singer,answer){
 		if(singer == 0 && answer == "jimmy"){
 			result = "correct";
@@ -76,13 +82,13 @@ window.onload = function(){
 		else{
 		console.log("Awaiting guesses");
 		}
+		countUpdate(rightCount,guessCount);
 	}
 
-// Function to change guess counter
 
 // Function to replace id main-container's contents with picture & result
 
-// Get variables together
+// Set up the page!
 
 	var jimmySongs = songList("sirJames.json");
 	var kennySongs = songList("sirKenneth.json");
