@@ -7,22 +7,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Kenny Chesney and Jimmy Buffett song title quiz">
     <meta name="author" content="Tessa Klettl">
+    
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-	<!-- my stylings -->
+	<!-- my own stylesheet-->
 	<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-	<h1>Who sings it?</h1>
+	
+	<!-- Main Container -->
+	<div id="main-container" class="container-fluid">
+		<h1>Who sings it?</h1>
+		<div id="song-name">
+			<h2>Song Name Goes Here</h2>
+		</div>
+		<div id = "pick-one">
+			<button type="button" class="btn btn-primary btn-large">Jimmy Buffett</button>
+			<button type="button" class="btn btn-primary btn-large">Kenny Chesney</button>
+		</div>
+	</div>
 
-<!--Javascript sources-->
+	<!-- Guess counter container -->
+	<div id="guess-counter" class="container-fluid">
+	<h3>See how many you can guess!</h3>
+	</div>
+
+
+	<!-- Footer -->
+	<div class = "navbar navbar-fixed-bottom">
+		<div class = "container">
+			<span class = "site-info">
+				Site (c) 2016 by <a href="www.tessaklettl.com" title="Come visit my site!">Tessa Klettl</a>
+			</span>
+			<span class = "MBMBAM">
+				Inspired by <a href="http://www.maximumfun.org/my-brother-my-brother-and-me/my-brother-my-brother-and-me-196-old-rotten-boat" title="Link to Episode">Episode 196</a> of <abbr title="My Brother My Brother And Me, a hilarious podcast you should listen to.">MBMBAM</abbr> 
+			</span>
+		</div>
+	</div>
+
+	<!--Javascript sources-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="scripts.js"></script>
+    
 </body>
-
 
 </html>
