@@ -110,6 +110,14 @@ p {
 		top: 5%;
 		transform: translate(-50%, -50%);
 	}
+	
+	.gh-mark{
+		display: block;
+		position: relative;
+		max-height: 32px;
+		left: 50%;
+		transform: translate(-50%,-25%);
+	}
 
 	.MBMBAM{
 		display: block;
@@ -125,6 +133,13 @@ p {
 		left: 5%;
 		top: 25%; 
 	}
+
+	.gh-mark{
+		position: absolute;
+		max-height: 32px;
+		left: 50%;
+		transform: translate(-50%,25%);
+	}		
 
 	.MBMBAM{
 	 	position: absolute;
