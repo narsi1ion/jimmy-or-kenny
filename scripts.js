@@ -43,17 +43,25 @@ window.onload = function(){
  		 return Math.floor(Math.random() * (max - min)) + min;
 	}
 
-// Function to display song choice
-	function displaySong(singer, song){
-	let songs;
+// Function to display song choice & remove song from list of possibilities
+	function displaySong(singer){
+		let songs;
 		if(singer == 0){
 			songs = jimmySongs;
 		}
 		else{
 			songs = kennySongs;
 		}
-	let songName = songs[song];
-	document.getElementById("song-name").innerHTML = songName;	
+		//If one of the song lists runs out, this prompts the user to refresh the page
+		if(songs.length == 50){
+			document.getElementById("song-name").innerHTML = "<h4>You've reached the end of the library. Refresh the page to regenerate the lists and try again!</h4>";
+			document.getElementById("jimmy").setAttribute("class", "off");
+			document.getElementById("kenny").setAttribute("class", "off");
+		}
+		//If the song lists are populated, fire away!
+		else{
+		document.getElementById("song-name").innerHTML = songs.splice(getRandomInt(0,songs.length),1);
+		}
 	}
 	
 // Function to change guess counter
@@ -113,15 +121,9 @@ window.onload = function(){
 		toggle(quiz);
 		if(singer == "0"){
 			toggle(jimmyPic);
-			btnJimmy.addEventListener("click", function(){
-				reset();
-				});			
 		}
 		else if(singer == "1"){
 			toggle(kennyPic);
-			btnKenny.addEventListener("click", function(){
-				reset();
-				});	
 		}
 	}
 	
@@ -135,30 +137,33 @@ window.onload = function(){
 		wrongo.setAttribute("class","off");
 	}
 	
-// Function to execute on guess click
+// Function to execute when you click your guess
 	function guessClicked(button){
 		guess = button;
 		guessCount++;
 		judgement(singerChoice, guess);
-		console.log(result);
-		console.log("Right = " + rightCount + ", wrong = " + wrongCount); // For debugging	
 		showPic(singerChoice);
 		accolades(result);
 		
 	}
-	
+
 // Set up the page!
-	jimmySongs = songList("sirJames.json");
-	kennySongs = songList("sirKenneth.json");
+	jimmySongs = songList("sirJames.json"),0;
+	kennySongs = songList("sirKenneth.json"),1;
 	function setup(){
 		singerChoice = getRandomInt(0,2);
-		songChoice = getRandomInt(0,jimmySongs.length);
-		displaySong(singerChoice, songChoice);
+		displaySong(singerChoice);
 	}
-
 	
+
 // Set up the page and run the whole darn thing
 	setup();
+	btnKenny.addEventListener("click", function(){
+		reset();
+		});
+	btnJimmy.addEventListener("click", function(){
+		reset();
+		});	
 	for(var i = 0; i < 2; i++){
 		choices[i].addEventListener("click", function(){
 			guessClicked(this.id);
