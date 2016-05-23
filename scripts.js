@@ -10,8 +10,7 @@ window.onload = function(){
 	var quiz = document.getElementById("quiz");
 	var jimmyPic = document.getElementById("jimmy-pic");
 	var kennyPic = document.getElementById("kenny-pic");
-	var btnJimmy = document.getElementById("btn-jimmy");
-	var btnKenny = document.getElementById("btn-kenny");
+	var tryAgain = document.getElementById("try-again");
 	var singerChoice;
 	var songChoice;
 	var jimmySongs;
@@ -110,9 +109,11 @@ window.onload = function(){
 	function accolades(grade){
 		if(grade == "correct"){
 			toggle(righto);
+			tryAgain.setAttribute("class", "btn btn-success btn-large try-again on");
 		}
 		else if(grade == "incorrect"){
 			toggle(wrongo);
+			tryAgain.setAttribute("class","btn btn-danger btn-large try-again on");
 		}
 	}
 
@@ -121,9 +122,11 @@ window.onload = function(){
 		toggle(quiz);
 		if(singer == "0"){
 			toggle(jimmyPic);
+			toggle(tryAgain);
 		}
 		else if(singer == "1"){
 			toggle(kennyPic);
+			toggle(tryAgain);
 		}
 	}
 	
@@ -135,6 +138,7 @@ window.onload = function(){
 		quiz.setAttribute("class","on");
 		righto.setAttribute("class","off");
 		wrongo.setAttribute("class","off");
+		tryAgain.setAttribute("class","btn btn-success btn-large off");
 	}
 	
 // Function to execute when you click your guess
@@ -158,12 +162,9 @@ window.onload = function(){
 
 // Set up the page and run the whole darn thing
 	setup();
-	btnKenny.addEventListener("click", function(){
+	tryAgain.addEventListener("click", function(){
 		reset();
 		});
-	btnJimmy.addEventListener("click", function(){
-		reset();
-		});	
 	for(var i = 0; i < 2; i++){
 		choices[i].addEventListener("click", function(){
 			guessClicked(this.id);
