@@ -1,5 +1,8 @@
 window.onload = function(){
 // Global variables needed for upcoming functions
+	var songs;
+	var request;
+	var singerList;
 	var choices = document.getElementsByClassName("btn-primary");
 	var guess;
 	var guessCount = 0;
@@ -20,8 +23,7 @@ window.onload = function(){
 
 // Function to grab song titles
 	function songList(file){
-		let songs;
-		let request = new XMLHttpRequest();
+		request = new XMLHttpRequest();
 		request.open('GET', file, false);
 		request.onload = function(){
 			if (this.status >= 200 && this.status < 400){
@@ -44,22 +46,21 @@ window.onload = function(){
 
 // Function to display song choice & remove song from list of possibilities
 	function displaySong(singer){
-		let songs;
 		if(singer == 0){
-			songs = jimmySongs;
+			singerList = jimmySongs;
 		}
 		else{
-			songs = kennySongs;
+			singerList = kennySongs;
 		}
 		//If one of the song lists runs out, this prompts the user to refresh the page
-		if(songs.length == 50){
+		if(singerList.length == 50){
 			document.getElementById("song-name").innerHTML = "<h4>You've reached the end of the library. Refresh the page to regenerate the lists and try again!</h4>";
 			document.getElementById("jimmy").setAttribute("class", "off");
 			document.getElementById("kenny").setAttribute("class", "off");
 		}
 		//If the song lists are populated, fire away!
 		else{
-		document.getElementById("song-name").innerHTML = songs.splice(getRandomInt(0,songs.length),1);
+		document.getElementById("song-name").innerHTML = singerList.splice(getRandomInt(0,singerList.length),1);
 		}
 	}
 	
