@@ -53,7 +53,7 @@ window.onload = function(){
 			singerList = kennySongs;
 		}
 		//If one of the song lists runs out, this prompts the user to refresh the page
-		if(singerList.length == 50){
+		if(singerList.length == 0){
 			document.getElementById("song-name").innerHTML = "<h4>You've reached the end of the library. Refresh the page to regenerate the lists and try again!</h4>";
 			document.getElementById("jimmy").setAttribute("class", "off");
 			document.getElementById("kenny").setAttribute("class", "off");
